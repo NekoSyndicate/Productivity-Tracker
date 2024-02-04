@@ -21,7 +21,7 @@ The Productivity Tracker app is built using Flutter, a UI toolkit that enables t
 2. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/productivity-tracker.git
+   git clone https://github.com/NekoSyndicate/Productivity-Tracker.git
    ```
 
 3. Navigate to the `productivity-tracker` directory:

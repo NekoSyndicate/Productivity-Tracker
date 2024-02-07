@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-const String API = "http://192.168.1.187:3000";
+const String API = "http://157.160.175.38:3000";
 
 Future<bool> validAccessCode(String code) async {
   Response res = await http.get(
@@ -12,7 +12,11 @@ Future<bool> validAccessCode(String code) async {
       'Content-Type': 'application/json; charset=UTF-8',
       'Authorization': code
     }
-  );
-  print(res);
+  ).timeout(const Duration(seconds: 1), onTimeout: () {
+    return Future<http.Response>.value(
+        http.Response("", 404)
+    );
+  });
+  print(res.statusCode);
   return res.statusCode == 200;
 }

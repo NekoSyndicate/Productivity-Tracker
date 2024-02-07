@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:productivity_tracker/Componets/NumWidget.dart';
 
-import '../models/ServerConnector.dart';
+import '../ServerLayer/ServerConnector.dart';
+import '../models/LoginViewModel.dart';
 
 class Login extends StatefulWidget {
   Login({super.key}) {
@@ -17,6 +18,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   String _access_code = "";
+  String _tm_number = "";
+  String _store_number = "";
 
 
   @override
@@ -36,6 +39,9 @@ class _LoginState extends State<Login> {
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
                     ],
+                    onChanged: (text) {
+                      _tm_number = text;
+                    },
                   ),
                   TextField(
                     decoration: const InputDecoration(
@@ -46,6 +52,9 @@ class _LoginState extends State<Login> {
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
                     ],
+                    onChanged: (text) {
+                      _store_number = text;
+                    },
                   ),
                   TextField(
                     decoration: const InputDecoration(
@@ -58,7 +67,8 @@ class _LoginState extends State<Login> {
                   ),
                   FilledButton(
                       onPressed: () {
-                        validAccessCode(_access_code).then((value) => print(value));
+                        loginAction(_access_code, _tm_number, _store_number)
+                            .then((value) => print(value));
                       },
                       child: const Text('Submit')),
                 ])

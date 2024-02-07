@@ -37,10 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: CatTheme,
         useMaterial3: true,
       ),
-      routes: {
-        '/': (context) => const Landing(),
-        '/login': (context) => const Login(),
-      },
+      home: const Landing(),
     );
   }
 }

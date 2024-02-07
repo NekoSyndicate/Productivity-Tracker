@@ -3,14 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:productivity_tracker/Componets/NumWidget.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+import '../models/ServerConnector.dart';
 
+class Login extends StatefulWidget {
+  Login({super.key}) {
+    //Take in ServerID
+    //Verify that can connect to server
+
+  }
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+  String _access_code = "";
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +27,15 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Text("Hello World"),
-                  const TextField(
-                    decoration: InputDecoration(
+                  TextField(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Team Member Number',
                     ),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                   ),
                   TextField(
                     decoration: const InputDecoration(
@@ -35,6 +47,20 @@ class _LoginState extends State<Login> {
                       FilteringTextInputFormatter.digitsOnly
                     ],
                   ),
+                  TextField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Access Code',
+                    ),
+                    onChanged: (text) {
+                      _access_code = text;
+                    },
+                  ),
+                  FilledButton(
+                      onPressed: () {
+                        validAccessCode(_access_code).then((value) => print(value));
+                      },
+                      child: const Text('Submit')),
                 ])
         ));
   }

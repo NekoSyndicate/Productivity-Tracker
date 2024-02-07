@@ -31,6 +31,7 @@ dependencies:
   catppuccin_flutter: ^1.0.0
   simple_animations: ^5.0.2
   cupertino_icons: ^1.0.2
+  page_transition: ^2.1.0
   flutter:
     sdk: flutter
 

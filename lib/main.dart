@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:productivity_tracker/views/Login.dart';
 import 'package:productivity_tracker/views/Tracker.dart';
 import 'package:productivity_tracker/views/Landing.dart';
 import 'package:catppuccin_flutter/catppuccin_flutter.dart';
@@ -36,7 +37,10 @@ class MyApp extends StatelessWidget {
         colorScheme: CatTheme,
         useMaterial3: true,
       ),
-      home: Landing(),
+      routes: {
+        '/': (context) => const Landing(),
+        '/login': (context) => const Login(),
+      },
     );
   }
 }

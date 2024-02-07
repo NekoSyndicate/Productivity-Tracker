@@ -1,5 +1,6 @@
 import 'package:catppuccin_flutter/catppuccin_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:productivity_tracker/Componets/NumWidget.dart';
 
 import 'Login.dart';
@@ -85,11 +86,15 @@ void _settingModalCompanyBottomSheet(context) {
                   leading: const Icon(Icons.phone_android),
                   title: const Text('Neko Syndicate 2241 Debug'),
                   onTap: () => {
-                    Navigator.of(context).push(
-                  MaterialPageRoute(
-                  builder: (context) => const Login(),
-                  ),
-                  )}),
+                    Navigator.pop(context),
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.bottomToTop,
+                        duration: const Duration(milliseconds: 250),
+                        child: Login(),
+                      ))
+                  }),
             ],
           ),
         );

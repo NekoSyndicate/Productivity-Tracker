@@ -51,6 +51,7 @@ class _LoginState extends State<Login> {
                       _tm_number = text;
                     },
                   ),
+                  SizedBox(height: 10),
                   TextField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -64,6 +65,7 @@ class _LoginState extends State<Login> {
                       _store_number = text;
                     },
                   ),
+                  SizedBox(height: 10),
                   TextField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -73,6 +75,7 @@ class _LoginState extends State<Login> {
                       _access_code = text;
                     },
                   ),
+                  SizedBox(height: 10),
                   FilledButton(
                       onPressed: () async {
                         bool valid = await loginAction(_access_code, _tm_number, _store_number);

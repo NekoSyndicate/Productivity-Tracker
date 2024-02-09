@@ -17,7 +17,7 @@ class DataConnector {
     await prefs.setString("access_code", code);
   }
 
-  Future<String> getAccessCode(String code) async {
+  Future<String> getAccessCode() async {
     return prefs.getString("access_code") ?? "";
   }
 
@@ -25,7 +25,7 @@ class DataConnector {
     await prefs.setString("tm_number", tm_number);
   }
 
-  Future<String> getTMNumber(String tm_number) async {
+  Future<String> getTMNumber() async {
     return prefs.getString("tm_number") ?? "";
   }
 
@@ -33,7 +33,7 @@ class DataConnector {
     await prefs.setString("store_number", store_number);
   }
 
-  Future<String> getStoreNumber(String store_number) async {
+  Future<String> getStoreNumber() async {
     return prefs.getString("store_number") ?? "";
   }
 
@@ -41,7 +41,7 @@ class DataConnector {
     await prefs.setString("organization", org);
   }
 
-  Future<String> getOrganization(String org) async {
+  Future<String> getOrganization() async {
     return prefs.getString("organization") ?? "";
   }
 

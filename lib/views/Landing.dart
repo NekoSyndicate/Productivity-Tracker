@@ -2,8 +2,12 @@ import 'package:catppuccin_flutter/catppuccin_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:productivity_tracker/Componets/NumWidget.dart';
+import 'package:productivity_tracker/data_layer/DataConnector.dart';
 
+import '../models/LandingViewModel.dart';
+import '../models/LoginViewModel.dart';
 import 'Login.dart';
+import 'Tracker.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -14,8 +18,32 @@ class Landing extends StatefulWidget {
 
 class _LandingState extends State<Landing> {
 
+
+
   @override
   Widget build(BuildContext context) {
+    isAuthed().then((value) async => {
+        if (value) {
+              Navigator.push(context,
+                PageTransition(
+                  type: PageTransitionType.bottomToTop,
+                  duration: const Duration(milliseconds: 250),
+                  child: const Tracker(title: 'Neko Syn 2241 Beta',),
+                )
+              )
+        } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+            content: const Text('Unable to access server (Check your network or Contact your Administator)'),
+            showCloseIcon: true,
+            duration: const Duration(days: 2),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          )
+        )
+        }
+      }
+    );
+
     return Scaffold(
         body: Center(
             child: Column(

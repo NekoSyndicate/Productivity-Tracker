@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:productivity_tracker/views/Login.dart';
 import 'package:productivity_tracker/views/Tracker.dart';
 import 'package:productivity_tracker/views/Landing.dart';
@@ -32,7 +33,10 @@ class MyApp extends StatelessWidget {
         surface: catppuccin.mocha.surface0,
         onSurface: catppuccin.mocha.text
     );
-
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Neko Syndicate Productivity Tracker',
       theme: ThemeData(

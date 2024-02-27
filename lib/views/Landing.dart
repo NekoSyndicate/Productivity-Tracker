@@ -36,9 +36,9 @@ class _LandingState extends State<Landing> {
             {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: const Text(
-                    'Unable to access server (Check your network or Contact your Administator)'),
+                    'Unable to access your session (Check your network or Contact your Administator)'),
                 showCloseIcon: true,
-                duration: const Duration(days: 2),
+                duration: const Duration(seconds: 15),
                 backgroundColor: Theme.of(context).colorScheme.error,
               ))
             }

@@ -1,28 +1,34 @@
-[
-  {
-    "id": "phone_sales",
-    "type": "INTEGER",
-    "emoji": "☎️",
-    "name": "Phones"
-  },{
-  "id": "support_tickets",
-  "type": "INTEGER",
-  "emoji": "🎟",
-  "name": "Support Tickets"
-  },{
-  "id": "postpaid",
-  "type": "INTEGER",
-  "emoji": "📲",
-  "name": "Postpaid/Sara+"
-  },{
-  "id": "protection",
-  "type": "INTEGER",
-  "emoji": "🛠",
-  "name": "Allstate/Apple Care"
-  },{
-  "id": "accessories",
-  "type": "CURRENCY",
-  "emoji": "💰",
-  "name": "Accessories"
-  }
-]
+{
+  "schema": [
+    {
+      "id": "phone_sales",
+      "type": "INTEGER",
+      "emoji": "☎️",
+      "name": "Phones"
+    },
+    {
+      "id": "support_tickets",
+      "type": "INTEGER",
+      "emoji": "🎟",
+      "name": "Support Tickets"
+    },
+    {
+      "id": "postpaid",
+      "type": "INTEGER",
+      "emoji": "📲",
+      "name": "Postpaid/Sara+"
+    },
+    {
+      "id": "protection",
+      "type": "INTEGER",
+      "emoji": "🛠",
+      "name": "Allstate/Apple Care"
+    },
+    {
+      "id": "accessories",
+      "type": "CURRENCY",
+      "emoji": "💰",
+      "name": "Accessories"
+    }
+  ]
+}
